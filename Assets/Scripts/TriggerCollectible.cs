@@ -10,24 +10,27 @@ public class TriggerCollectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == PLAYER_TAG)
+        if(other.gameObject.tag != PLAYER_TAG)
         {
-            Debug.Log("Entre dans la zone du collectible");
+            return;
         }
+            Debug.Log("Entre dans la zone du collectible");
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == PLAYER_TAG)
+        if (other.gameObject.tag != PLAYER_TAG)
         {
-            Debug.Log("Se ballade dans la zone du collectible");
+            return;
         }
+            Debug.Log("Se ballade dans la zone du collectible");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == PLAYER_TAG)
+        if (other.gameObject.tag != PLAYER_TAG)
         {
-            Debug.Log("Quitte la zone du collectible");
+            return;
         }
+            Debug.Log("Quitte la zone du collectible");
     }
 }
