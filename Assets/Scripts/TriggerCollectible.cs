@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(gameObject))]
 
 public class TriggerCollectible : MonoBehaviour
 {
-    [SerializeField] private CharacterController m_Player;
+    private const string PLAYER_TAG = "Player";
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == PLAYER_TAG)
+        {
+            Debug.Log("Entre dans la zone du collectible");
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == PLAYER_TAG)
+        {
+            Debug.Log("Se ballade dans la zone du collectible");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.tag == PLAYER_TAG)
+        {
+            Debug.Log("Quitte la zone du collectible");
+        }
     }
 }
